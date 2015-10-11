@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 1000px; height: 600px;'></div>
+</div>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @stand.latitude %>
+</p>
+
+<p>
+  <strong>Longtitude:</strong>
+  <%= @stand.longitude %>
+</p>
+
+<p>
+  <strong>Adress:</strong>
+  <%= @stand.address %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @stand.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @stand.description %>
+</p>
+
+<%= link_to 'Edit', edit_stand_path(@stand) %> |
+<%= link_to 'Back', stands_path %>
+
+
+<script type="text/javascript">
+  
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: { id: 'map' }}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(18);
+  }
+);
+
+</script>

@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: afisha_dev
+  pool: 5
+  username: evgeniypalguev
+  password: 12345678

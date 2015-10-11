@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Рекламные стенды Краснодара</h1>
+
+<div style='width: 100%;'>
+  <div id="map" style='width: 100%; height: 600px;'></div>
+</div>
+    
+    <% @stands.each do |stand| %>
+      <h3><%= stand.address %> <small><%= link_to 'Открыть', stand %> | <%= link_to 'Редактировать', edit_stand_path(stand) %> | <%= link_to 'Удалить', stand, method: :delete, data: { confirm: 'Точно удалить?' } %></small>
+      </h3>
+    <% end %>
+
+<%= link_to 'Новый стенд', new_stand_path %>
+
+<script type="text/javascript">
+  
+handler = Gmaps.build('Google');
+handler.buildMap({
+    provider: {
+      disableDefaultUI: true
+      // pass in other Google Maps API options here
+    },
+    internal: {
+      id: 'map'
+    }
+  },
+  function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  }
+);
+
+</script>
