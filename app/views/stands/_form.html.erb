@@ -12,35 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :latitude %><br>
+    <%= f.label :photo, "Фото" %><br>
     <%= f.file_field :photo %>
-  </div>
+  </div><br>
 
   <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
+    <%= f.label :city, "Город" %><br>
     <%= f.text_field :city %>
-  </div>
+  </div><br>
   <div class="field">
-    <%= f.label :address %><br>
+    <%= f.label :address, "Адрес для поиска" %><br>
     <%= f.text_field :address %>
-  </div>
+  </div><br>
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title, "Видимый заголовок" %><br>
     <%= f.text_field :title %>
-  </div>
+  </div><br>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description, "Описание" %><br>
     <%= f.text_area :description %>
-  </div>
+  </div><br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Сохранить"%>
   </div>
 <% end %>
+<br>
