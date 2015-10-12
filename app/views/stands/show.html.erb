@@ -24,7 +24,8 @@
   <%= @stand.description %>
 </p>
 
-<%= link_to 'Редактировать', edit_stand_path(@stand) %>
+<%= link_to 'Редактировать', edit_stand_path(@stand) %> | 
+<%= link_to 'Удалить', @stands, method: :delete, data: { confirm: 'Точно удалить?' } %>
 
 </div>
 
