@@ -1,18 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Рекламные стенды Краснодара</h1>
-
 <div style='width: 100%;'>
   <div id="map" style='width: 100%; height: 600px;'></div>
 </div>
-    
+<br>
+    <ul>
     <% @stands.each do |stand| %>
-      <h3><%= stand.address %> <small><%= link_to 'Открыть', stand %> | <%= link_to 'Редактировать', edit_stand_path(stand) %> | <%= link_to 'Удалить', stand, method: :delete, data: { confirm: 'Точно удалить?' } %></small>
-      </h3>
+      <li> <%= link_to stand.title, stand %> </li>
     <% end %>
-
-<%= link_to 'Новый стенд', new_stand_path %>
-
+    </ul>
 <script type="text/javascript">
   
 handler = Gmaps.build('Google');

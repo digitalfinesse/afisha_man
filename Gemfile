@@ -19,6 +19,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'paperclip', '~> 4.3.1'
 gem 'gmaps4rails'
 gem 'geocoder'
 gem 'bootstrap-sass', '~> 3.3.5.1'

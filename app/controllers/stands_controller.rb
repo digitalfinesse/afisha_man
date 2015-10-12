@@ -6,10 +6,12 @@ class StandsController < ApplicationController
   def index
     @stands = Stand.all
     @hash = Gmaps4rails.build_markers(@stands) do |stand, marker|
-    marker.lat stand.latitude
-    marker.lng stand.longitude
-    marker.infowindow stand.description
-  end
+      stand_link = view_context.link_to stand.title, stand_path(stand)
+      marker.lat stand.latitude
+      marker.lng stand.longitude
+      marker.infowindow "<p><img src='#{stand.photo.url(:thumb)}'></p>
+                         <h5>#{stand_link}</h5>"
+    end
   end
 
   # GET /stands/1
@@ -80,6 +82,6 @@ class StandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stand_params
-      params.require(:stand).permit(:latitude, :longitude, :address, :description, :title)
+      params.require(:stand).permit(:latitude, :longitude, :address, :description, :title, :city, :photo)
     end
 end
