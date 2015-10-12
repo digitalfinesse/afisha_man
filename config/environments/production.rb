@@ -25,6 +25,7 @@ Rails.application.configure do
   #config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   config.serve_static_assets = true
+  config.assets.compile = true
   
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
